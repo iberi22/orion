@@ -43,3 +43,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+firebase.json
+plan.md
+GEMINI.md
+android/app/google-services.json
+.windsurf/rules/rules.md
