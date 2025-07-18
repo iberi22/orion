@@ -8,6 +8,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:isar_agent_memory/isar_agent_memory.dart';
 
+
 class VoiceChatScreen extends StatefulWidget {
   const VoiceChatScreen({super.key});
 
@@ -115,8 +116,8 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return shadcn.Scaffold(
-      header: shadcn.AppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: const Text('Voice Chat'),
       ),
       body: Center(

@@ -44,12 +44,13 @@ dependencies:
   # Isar for local database and agent memory
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
-  isar_agent_memory: ^0.1.1 # https://pub.dev/packages/isar_agent_memory
+  isar_agent_memory: ^0.1.2
 
   # Audio packages for voice interaction
   flutter_sound: ^9.2.13
   just_audio: ^0.9.36
   permission_handler: ^11.3.16
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
