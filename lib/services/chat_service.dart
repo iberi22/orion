@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:orion/models/chat_message.dart';
 
@@ -11,11 +10,7 @@ class ChatService {
     required ChatMessage message,
   }) async {
     try {
-      await _db
-          .collection('chats')
-          .doc(chatId)
-          .collection('messages')
-          .add({
+      await _db.collection('chats').doc(chatId).collection('messages').add({
         'text': message.text,
         'sender': message.sender,
         'timestamp': message.timestamp,

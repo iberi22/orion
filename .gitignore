@@ -48,4 +48,29 @@ plan.md
 GEMINI.md
 android/app/google-services.json
 .windsurf/rules/rules.md
+
+# Environment and Security Files
 .env
+.env.local
+.env.production
+.env.staging
+*.json.key
+*-firebase-adminsdk-*.json
+service-account-*.json
+private-key-*.json
+
+# Development and Debug Files
+*_debug.dart
+*_test.dart
+*_demo.dart
+*.bak
+*.backup
+*.tmp
+*.temp
+debug.log
+*.debug.log
+
+# IDE and Editor Files
+.vscode/settings.json
+.vscode/launch.json
+*.code-workspace

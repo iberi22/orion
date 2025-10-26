@@ -1,4 +1,3 @@
-
 class ChatMessage {
   final String text;
   final String sender;

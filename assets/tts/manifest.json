@@ -1,0 +1,38 @@
+{
+  "voices": [
+    {
+      "key": "es_ES-mls_10246-low",
+      "language": "es-ES",
+      "quality": "low",
+      "files": [
+        {
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/mls_10246/low/es_ES-mls_10246-low.onnx",
+          "md5": "",
+          "size_bytes": 0
+        },
+        {
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/mls_10246/low/es_ES-mls_10246-low.onnx.json",
+          "md5": "",
+          "size_bytes": 0
+        }
+      ]
+    },
+    {
+      "key": "en_US-lessac-medium",
+      "language": "en-US",
+      "quality": "medium",
+      "files": [
+        {
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx",
+          "md5": "",
+          "size_bytes": 0
+        },
+        {
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json",
+          "md5": "",
+          "size_bytes": 0
+        }
+      ]
+    }
+  ]
+}

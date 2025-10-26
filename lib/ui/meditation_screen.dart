@@ -24,7 +24,8 @@ class _MeditationScreenState extends State<MeditationScreen> {
 
   Future<void> _fetchMeditationScript() async {
     try {
-      const prompt = 'Genera un guion para una meditación guiada de 5 pasos para principiantes. Separa cada paso con un "|".';
+      const prompt =
+          'Genera un guion para una meditación guiada de 5 pasos para principiantes. Separa cada paso con un "|".';
       final response = await _aiService.getResponse(prompt);
       setState(() {
         _meditationSteps = response.split('|').map((e) => e.trim()).toList();
@@ -50,7 +51,8 @@ class _MeditationScreenState extends State<MeditationScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.transparent, // Make scaffold transparent to see the gradient
+      backgroundColor:
+          Colors.transparent, // Make scaffold transparent to see the gradient
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -65,11 +67,7 @@ class _MeditationScreenState extends State<MeditationScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xff1e2a78),
-              Color(0xff4b3f91),
-              Color(0xff8a4d9e),
-            ],
+            colors: [Color(0xff1e2a78), Color(0xff4b3f91), Color(0xff8a4d9e)],
           ),
         ),
         child: Center(
@@ -98,7 +96,10 @@ class _MeditationScreenState extends State<MeditationScreen> {
       children: [
         Text(
           'Paso ${_currentStep + 1} de ${_meditationSteps.length}',
-          style: TextStyle(color: theme.colorScheme.onSurface.withOpacity(0.6), fontSize: 16),
+          style: TextStyle(
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            fontSize: 16,
+          ),
         ),
         const SizedBox(height: 24),
         Expanded(
@@ -115,8 +116,8 @@ class _MeditationScreenState extends State<MeditationScreen> {
         const SizedBox(height: 24),
         if (_currentStep < _meditationSteps.length - 1)
           shadcn.PrimaryButton(
-            child: const Text('Siguiente'),
             onPressed: _nextStep,
+            child: const Text('Siguiente'),
           )
         else
           shadcn.PrimaryButton(

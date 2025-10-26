@@ -9,9 +9,10 @@ plugins {
 }
 
 android {
+    ndkVersion = "27.0.12077973"
     namespace = "com.example.orion"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // ndkVersion overridden above
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -27,7 +28,7 @@ android {
         applicationId = "com.example.orion"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 24 // flutter_sound requires at least 24
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

@@ -2,7 +2,7 @@ import 'package:animate_gradient/animate_gradient.dart';
 import 'package:flutter/material.dart' as material;
 import 'package:orion/services/ai_service.dart';
 import 'package:orion/ui/meditation_screen.dart';
-import 'package:orion/ui/voice_chat_screen.dart';
+import 'package:orion/ui/animated_voice_chat_demo.dart';
 import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 import 'package:google_fonts/google_fonts.dart';
@@ -92,13 +92,13 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
           'Bienvenido/a a tu espacio interior.',
           style: GoogleFonts.lato(
             fontSize: 18,
-            color: material.Colors.white.withOpacity(0.8),
+            color: material.Colors.white.withValues(alpha: 0.8),
           ),
         ),
         const material.SizedBox(height: 48),
         material.Expanded(
           child: material.ListView.builder(
-            itemCount: 4,
+            itemCount: 5,
             itemBuilder: (context, index) {
               if (index == 0) {
                 return _buildMeditationCard();
@@ -106,8 +106,10 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
                 return _buildExploreCard();
               } else if (index == 2) {
                 return _buildCalmCard();
-              } else {
+              } else if (index == 3) {
                 return _buildVoiceChatCard();
+              } else {
+                return _buildAnimationDemoCard();
               }
             },
           ),
@@ -119,7 +121,7 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
   material.Widget _buildMeditationCard() {
     return shadcn.Card(
       child: material.Container(
-        color: material.Colors.white.withOpacity(0.1),
+        color: material.Colors.white.withValues(alpha: 0.1),
         margin: const material.EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 12,
@@ -157,7 +159,7 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
   material.Widget _buildExploreCard() {
     return shadcn.Card(
       child: material.Container(
-        color: material.Colors.white.withOpacity(0.1),
+        color: material.Colors.white.withValues(alpha: 0.1),
         margin: const material.EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 12,
@@ -189,7 +191,7 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
   material.Widget _buildVoiceChatCard() {
     return shadcn.Card(
       child: material.Container(
-        color: material.Colors.white.withOpacity(0.1),
+        color: material.Colors.white.withValues(alpha: 0.1),
         margin: const material.EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 12,
@@ -211,9 +213,15 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
             PrimaryButton(
               child: const material.Text('Iniciar Chat de Voz'),
               onPressed: () {
-                shadcn.Navigator.of(context).push(
-                  shadcn.MaterialPageRoute(
-                    builder: (context) => const VoiceChatScreen(),
+                // Temporarily disabled due to compilation issues
+                // shadcn.Navigator.of(context).push(
+                //   shadcn.MaterialPageRoute(
+                //     builder: (context) => const VoiceChatScreen(),
+                //   ),
+                // );
+                material.Navigator.of(context).push(
+                  material.MaterialPageRoute(
+                    builder: (context) => const AnimatedVoiceChatDemo(),
                   ),
                 );
               },
@@ -227,7 +235,7 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
   material.Widget _buildCalmCard() {
     return shadcn.Card(
       child: material.Container(
-        color: material.Colors.white.withOpacity(0.1),
+        color: material.Colors.white.withValues(alpha: 0.1),
         margin: const material.EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 12,
@@ -355,6 +363,59 @@ class _WelcomeScreenState extends material.State<WelcomeScreen> {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  material.Widget _buildAnimationDemoCard() {
+    return shadcn.Card(
+      child: material.Container(
+        color: material.Colors.white.withValues(alpha: 0.1),
+        margin: const material.EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 12,
+        ),
+        padding: const material.EdgeInsets.all(24.0),
+        child: material.Column(
+          mainAxisAlignment: material.MainAxisAlignment.center,
+          children: [
+            material.Icon(
+              material.Icons.animation,
+              size: 48,
+              color: material.Colors.white,
+            ),
+            const material.SizedBox(height: 16),
+            material.Text(
+              'Demo Animaciones IA',
+              style: GoogleFonts.lato(
+                fontSize: 24,
+                fontWeight: material.FontWeight.bold,
+                color: material.Colors.white,
+              ),
+              textAlign: material.TextAlign.center,
+            ),
+            const material.SizedBox(height: 8),
+            material.Text(
+              'Explora las animaciones del agente conversacional',
+              style: GoogleFonts.lato(
+                fontSize: 16,
+                color: material.Colors.white.withValues(alpha: 0.8),
+              ),
+              textAlign: material.TextAlign.center,
+            ),
+            const material.SizedBox(height: 16),
+            PrimaryButton(
+              child: const material.Text('Ver Demo'),
+              onPressed: () {
+                material.Navigator.of(context).push(
+                  material.MaterialPageRoute(
+                    builder: (context) => const AnimatedVoiceChatDemo(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

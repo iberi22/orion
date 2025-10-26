@@ -1,0 +1,6 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pydantic>=2.6.0
+numpy>=1.24.0
+# Install KittenTTS wheel from GitHub release
+https://github.com/KittenML/KittenTTS/releases/download/0.1/kittentts-0.1.0-py3-none-any.whl

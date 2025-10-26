@@ -1,0 +1,49 @@
+name: Flutter Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  analyze_and_unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+      - run: flutter --version
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test -r expanded
+
+  android_integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+      - run: flutter pub get
+      - name: Run on Android emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          arch: x86_64
+          target: default
+          profile: Nexus 6
+          script: flutter test integration_test -r expanded
+      - name: Upload integration screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration_screenshots
+          path: |
+            build/integration_test/**/screenshots/**/*
+            build/integration_test/screenshots/**/*
