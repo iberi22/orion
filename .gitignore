@@ -78,3 +78,4 @@ debug.log
 # Documentation Files
 *.md
 !README.md
+!LICENSE.md
